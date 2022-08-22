@@ -1,0 +1,43 @@
+<mat-card
+  class="kit"
+  routerLinkActive="active-link"
+  [routerLink]="['/kit-management/kit/', kit.kitID]"
+  (click)="selectKit()"
+>
+  <mat-card-header class="kit-card-header">
+<!--     <mat-card-title>{{ kit.kitName }}</mat-card-title>
+    <mat-card-subtitle>{{ kit.Location }}</mat-card-subtitle>
+ -->
+    <mat-icon
+      [color]="dataLoadingState === loadingState.Success ? 'primary' : 'warn'"
+      >circle</mat-icon
+    >
+  </mat-card-header>
+  <img
+    *ngIf="kit.sensors"
+    mat-card-image
+    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+    alt="Photo of a Shiba Inu"
+  />
+  <mat-card-content>
+    <p *ngIf="kit.sensors">
+      The Shiba Inu is the smallest of the six original and distinct spitz
+      breeds of dog from Japan. A small, agile dog that copes very well with
+      mountainous terrain, the Shiba Inu was originally bred for hunting.
+    </p>
+    <app-error-message
+      *ngIf="!kit.sensors"
+      message="Sensors not available"
+    ></app-error-message>
+  </mat-card-content>
+  <mat-card-actions class="text-center">
+    <button
+      mat-button
+      routerLinkActive="active-link"
+      [routerLink]="['/kit-management/kit/', kit.kitID]"
+      (click)="selectKit()"
+    >
+      CLlCK FOR DETAILS
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,9 @@
+<app-main-header (navigationToggle)="mainNavigation.toggle()"> </app-main-header>
+<mat-sidenav-container autosize>
+  <mat-sidenav class="sidenav" position="start" #mainNavigation [mode]="navigationMode" [opened]="navigationState">
+    <app-main-sidebar (selectLink)="mainNavigation.toggle()"></app-main-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,15 @@
+@use '@angular/material' as mat;
+@import './theme-base';
+@import './tac-theme.scss';
+
+$tac-light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $tac-primary-light,
+      accent: $tac-accent-light,
+      warn: $tac-warn-light,
+    ),
+  )
+);
+
+@include theme($tac-light-theme, $tac-typography);

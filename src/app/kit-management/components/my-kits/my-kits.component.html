@@ -1,0 +1,10 @@
+<div class="my-kits" [ngSwitch]="dataLoadingState">
+  <div class="my-kits-list" *ngSwitchCase="loadingState.Success">
+    <app-kit-card *ngFor="let kit of myKits" [kit]="kit"></app-kit-card>
+  </div>
+  <mat-spinner *ngSwitchCase="loadingState.Loading" [diameter]="48">
+  </mat-spinner>
+</div>
+<button class="add-new-kit-button" (click)="openAddKNewKitDialog()" mat-fab color="primary" aria-label="Botton for adding new kit">
+  <mat-icon>add</mat-icon>
+</button>

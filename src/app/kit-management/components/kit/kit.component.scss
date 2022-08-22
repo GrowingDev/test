@@ -1,0 +1,16 @@
+@import 'src/styles/breakpoints';
+
+:host {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.kit {
+    padding: 24px;
+
+    @media (min-width: $min-md-width) {
+        padding: 24px;
+    }
+}

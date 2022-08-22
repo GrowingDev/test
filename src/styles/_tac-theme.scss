@@ -1,0 +1,191 @@
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
+
+// Color gradations
+// These color gradations are used for the color palettes of the light and dark theme.
+// For every color there must be also a contrast color specified.
+$tac-blue: (
+  50: #ccf4ff,
+  100: #a8ddf7,
+  200: #88c2e0,
+  300: #65a7c8,
+  400: #4893b6,
+  500: #227fa4,
+  600: #0b7092,
+  700: #005c7b,
+  800: #004965,
+  900: #00344d,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+  ),
+);
+
+$tac-green: (
+  50: #e0f5f0,
+  100: #b3e6d9,
+  200: #81d6c1,
+  300: #49c5a8,
+  400: #0eb795,
+  500: #00a984,
+  600: #009b77,
+  700: #008a67,
+  800: #007a58,
+  900: #005d3d,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+  ),
+);
+
+$tac-red: (
+  50: #fae2e6,
+  100: #f4b7c0,
+  200: #ea8997,
+  300: #e05d70,
+  400: #d63e55,
+  500: #cd273c,
+  600: #be223b,
+  700: #aa1c38,
+  800: #971536,
+  900: #740c31,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+  ),
+);
+
+$tac-orange: (
+  50: #fffde8,
+  100: #fef9c6,
+  200: #fef5a1,
+  300: #fcf17b,
+  400: #faec5e,
+  500: #f8e742,
+  600: #fcda42,
+  700: #fac339,
+  800: #f7ab31,
+  900: #f28423,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $dark-primary-text,
+    800: $dark-primary-text,
+    900: $dark-primary-text,
+  ),
+);
+
+// Color palettes
+// Each color palette is defined by the mat-palette function,
+// which requires the color gradation and allows to set the default color (second parameter).
+
+// Color palettes for the light theme
+$tac-primary-light: mat.define-palette(
+  $tac-blue,
+  600
+); /* Primary color palette */
+$tac-accent-light: mat.define-palette(
+  $tac-green,
+  400
+); /* Accent color palette */
+$tac-warn-light: mat.define-palette(
+  $tac-red,
+  700
+); /* Warning color palette */
+
+// Color palettes for the dark theme
+$tac-primary-dark: mat.define-palette(
+  $tac-blue,
+  500
+); /* Primary color palette */
+$tac-accent-dark: mat.define-palette(
+  $tac-green,
+  400
+); /* Accent color palette */
+$tac-warn-dark: mat.define-palette(
+  $tac-red,
+  400
+); /* Warning color palette */
+
+// Fonts
+/* @font-face {
+  font-family: 'Metropolis';
+  src: url('../../assets/fonts/Metropolis-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  src: url('../../assets/fonts/Metropolis-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  src: url('../../assets/fonts/Metropolis-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+} */
+
+// Typography configuration
+// The typogrpahy configuration consists of the font family and the set of typographic levels.
+// Each typographic level is defined by the mat-typography-level function,
+// which requires the font-size, line-height, and font-weight (in this order).
+$tac-typography: mat.define-typography-config(
+  $font-family: 'Roboto, sans-serif',
+  $display-4: mat.define-typography-level(112px, 112px, bold),
+  /* Large one-off header */ $display-3:
+    mat.define-typography-level(56px, 56px, bold),
+  /* Large one-off header */ $display-2:
+    mat.define-typography-level(45px, 48px, bold),
+  /* Large one-off header */ $display-1:
+    mat.define-typography-level(34px, 40px, bold),
+  /* Large one-off header */ $headline:
+    mat.define-typography-level(24px, 32px, 500),
+  /* Section heading (h1) */ $title:
+    mat.define-typography-level(20px, 32px, 500),
+  /* Section heading (h2) */ $subheading-2:
+    mat.define-typography-level(16px, 24px, normal),
+  /* Section heading (h3) */ $subheading-1:
+    mat.define-typography-level(15px, 24px, normal),
+  /* Section heading (h4) */ $body-2:
+    mat.define-typography-level(14px, 24px, bold),
+  /* Bolder body text */ $body-1:
+    mat.define-typography-level(14px, 20px, normal),
+  /* Base body text */ $caption: mat.define-typography-level(12px, 18px, normal),
+  /* Smaller body and hint text */ $button:
+    mat.define-typography-level(14px, 14px, 500),
+  /* Buttons and anchors */ $input:
+    mat.define-typography-level(inherit, 1.1435, normal) /* Form input fields */,
+);

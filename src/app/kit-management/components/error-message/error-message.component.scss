@@ -1,0 +1,14 @@
+.error-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    width: 100%;
+
+    .error-message-icon{
+        font-size: 28px;
+        width: fit-content;
+        height: fit-content;
+    }
+}

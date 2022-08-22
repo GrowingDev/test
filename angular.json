@@ -96,7 +96,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/styles/themes/nimbus-light-theme.scss",
+                "inject": false,
+                "bundleName": "nimbus-light-theme"
+              },
+              {
+                "input": "src/styles/themes/nimbus-dark-theme.scss",
+                "inject": false,
+                "bundleName": "nimbus-dark-theme"
+              }
             ],
             "scripts": []
           }

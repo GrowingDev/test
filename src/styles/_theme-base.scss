@@ -1,0 +1,62 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
+@import 'src/app/main/main-theme.scss';
+
+//@import 'animate.css';
+
+@include mat.core();
+
+$gray: (
+  50: #f9f9f8,
+  100: #f2f2f1,
+  200: #eaeae8,
+  300: #dadad9,
+  400: #b6b6b5,
+  500: #979795,
+  600: #6e6e6d,
+  700: #5b5b5a,
+  800: #3c3c3b,
+  900: #1c1c1b,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+  ),
+);
+
+$light-gray: mat.get-color-from-palette($gray, 200);
+$dark-gray: mat.get-color-from-palette($gray, 800);
+
+@mixin base-theme($theme, $typography) {
+  $color-config: mat.get-color-config($theme);
+  $primary: map.get($color-config, primary);
+  $accent: map.get($color-config, accent);
+  $warn: map.get($color-config, warn);
+  $is-dark-theme: map.get($color-config, is-dark);
+  $foreground: map.get($color-config, foreground);
+  $background: map.get($color-config, background);
+  $default-gray: if($is-dark-theme, $light-gray, $dark-gray);
+
+  }
+
+  @mixin theme($theme, $typography) {
+    @include mat.all-component-themes($theme);
+    @include mat.all-component-typographies($typography);
+  
+    @include base-theme($theme, $typography);
+    @include main-theme($theme, $typography);
+  }
+  
+  app-main-sidebar{
+    .mat-toolbar{
+      padding: 16px;
+    }
+  }

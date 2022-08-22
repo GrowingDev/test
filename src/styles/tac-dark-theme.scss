@@ -1,0 +1,15 @@
+@use '@angular/material' as mat;
+@import './theme-base';
+@import './tac-theme.scss';
+
+$tac-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $tac-primary-dark,
+      accent: $tac-accent-dark,
+      warn: $tac-warn-dark,
+    ),
+  )
+);
+
+@include theme($tac-dark-theme, $tac-typography);

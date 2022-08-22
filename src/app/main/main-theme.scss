@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import 'src/styles/brakepoints';
+
+@mixin main-theme($theme, $typography) {
+    $color-config: mat.get-color-config($theme);
+    $is-dark-theme: map.get($color-config, is-dark);
+
+    .active-link {
+        background-color: mat.get-color-from-palette($primary, 500);
+        color: mat.get-contrast-color-from-palette($primary, 500);
+    }
+}

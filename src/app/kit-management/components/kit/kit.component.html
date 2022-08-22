@@ -1,0 +1,20 @@
+<div class="kit">
+  <mat-card>
+    <mat-card-header class="kit-card-header">
+      <mat-card-title>{{ kit?.kitName }}</mat-card-title>
+      <mat-card-subtitle>{{ kit?.Location }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ kit?.kitID }}</mat-card-subtitle>
+      <mat-icon
+        [color]="dataLoadingState === loadingState.Success ? 'primary' : 'warn'"
+        >circle</mat-icon
+      >
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>t</p>
+    </mat-card-content>
+    <mat-card-actions class="text-center">
+      <button mat-button>Settings</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

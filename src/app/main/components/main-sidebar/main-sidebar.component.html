@@ -1,0 +1,24 @@
+<div class="py-4">
+  <button
+    matRipple
+    mat-button
+    class="sidebar-link"
+    routerLinkActive="active-link"
+    routerLink="/kit-management/my-kits"
+    (click)="selectLink.emit()"
+  >
+    <mat-icon class="link-icon">home</mat-icon>
+    <span class="mat-body-strong">My Kits</span>
+</button>
+  <button
+    matRipple
+    mat-button
+    class="sidebar-link"
+    routerLinkActive="active-link"
+    routerLink="/kit-management/community-kits"
+    (click)="selectLink.emit()"
+  >
+    <mat-icon class="link-icon">public</mat-icon>
+    <span class="mat-body-strong">Community Kits</span>
+  </button>
+</div>
