@@ -1,0 +1,21 @@
+:host ::ng-deep {
+   .mat-fab {
+      background-color: black;
+   }
+
+   .mat-tab-label-active {
+      border-bottom-color: black !important;
+   }
+
+   .mat-ink-bar {
+      background-color: black !important;
+   }
+
+   .mat-flat-button {
+      background-color: black !important;
+   }
+   .mat-toolbar{
+      background-color: black !important;
+   }
+
+}

@@ -37,7 +37,7 @@ export class CustomSensorService {
       name: sensorName,
       value: parseFloat(value),
     });
-    console.log(data)
+
     return this.http.post<any>(
       `${this.baseUrl}/single_sensor/${kitID}/data`,
       data

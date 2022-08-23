@@ -1,33 +1,21 @@
 <div class="kit">
   <div class="kit-header">
     <mat-card class="my-4 flex-1 max-w-xl">
-      <mat-card-header class="kit-header">
-        <mat-card-title>TAC</mat-card-title>
-        <mat-card-subtitle>Linz</mat-card-subtitle>
-      </mat-card-header>
-
-      <mat-card-content>
-        <div class="kit-information"></div>
-      </mat-card-content>
-      <mat-card-actions class="text-center">
-        <button mat-button>Settings</button>
-      </mat-card-actions>
-    </mat-card>
-
-   <!--  <mat-card class="my-4 flex-1">
-      <mat-card-header class="kit-header">
+      <mat-card-header>
         <mat-card-title>{{ kit?.kitName }}</mat-card-title>
         <mat-card-subtitle>{{ kit?.Location }}</mat-card-subtitle>
-        <mat-card-subtitle>{{ kit?.kitID }}</mat-card-subtitle>
       </mat-card-header>
 
       <mat-card-content>
         <div class="kit-information"></div>
       </mat-card-content>
-      <mat-card-actions class="text-center">
-        <button mat-button></button>
+      <mat-card-actions>
+        <div class="flex flex-row justify-between align-center p-2">
+          <span>Latest Measurement: {{ data.timestamp }}</span>
+          <span>ID: {{ kitID }}</span>
+        </div>
       </mat-card-actions>
-    </mat-card> -->
+    </mat-card>
   </div>
 
   <mat-tab-group mat-align-tabs="center">
@@ -45,6 +33,21 @@
     </mat-tab>
   </mat-tab-group>
 </div>
-<button class="add-new-custom-sensor-button" (click)="openAddNewCustomSensorDialog()" mat-fab color="primary" aria-label="Botton for adding new kit">
+<button
+  class="add-new-custom-sensor-button"
+  (click)="openAddNewCustomSensorDialog()"
+  mat-fab
+  color="primary"
+  aria-label="Botton for adding new kit"
+>
   <mat-icon>add</mat-icon>
 </button>
+<a
+  class="add-new-measurement-button"
+  [href]="'https://kits.teleagriculture.org/app/kit/' + kitID + '/camera'"
+  mat-fab
+  color="primary"
+  aria-label="Botton for adding new measurement"
+>
+  <mat-icon>photo_camera</mat-icon>
+</a>

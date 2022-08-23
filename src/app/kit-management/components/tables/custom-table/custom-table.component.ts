@@ -18,13 +18,13 @@ export class CustomTableComponent implements OnInit {
   @ViewChild(MatTable) table!: MatTable<CustomSensorData>;
   @Input() kitID!: string;
   readonly dataSource = new MatTableDataSource<CustomSensorData>();
+
   ELEMENT_DATA: CustomSensorData[] = [];
   displayedColumns: string[] = [
     'name',
     'value',
     'min',
     'max',
-    'description',
     'timestamp',
     'star',
   ];
@@ -52,7 +52,6 @@ export class CustomTableComponent implements OnInit {
       next: ([sensors, sensorsData, parameters]) => {
         let newList: CustomSensorData[] = [];
         sensors.map((sensor) => {
-  
           let entry: CustomSensorData = {
             name: sensor.name,
             timestamp: this.findTimeStamp(sensorsData, sensor.name),
@@ -89,11 +88,10 @@ export class CustomTableComponent implements OnInit {
     if (data) {
       return data.timestamp;
     } else {
-      return "";
+      return '';
     }
   }
   findMin(parameters: any[], name: string): string {
-    console.log(parameters);
     const data = parameters.find((parameter) => {
       return parameter.sensor === name;
     });
@@ -105,7 +103,6 @@ export class CustomTableComponent implements OnInit {
     }
   }
   findMax(parameters: any[], name: string): string {
-    console.log(parameters);
     const data = parameters.find((parameter) => {
       return parameter.sensor === name;
     });

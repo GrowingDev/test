@@ -12,8 +12,8 @@ export class SensorService {
 
   constructor(private http: HttpClient) {}
 
-  getLatestSensorData(kitId: string): Observable<KitData[]> {
-    return this.http.get<KitData[]>(`${this.baseUrl}/sensors/${kitId}/data`);
+  getLatestSensorData(kitId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/sensors/${kitId}/data`);
   }
   getAllKitParameters(kitId: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/parameter/kit/${kitId}`);
@@ -43,7 +43,7 @@ export class SensorService {
       name: 'Test',
       value: parseFloat(value),
     });
-    console.log(data);
+
     return this.http.post<any>(
       `${this.baseUrl}/single_sensor/${kitID}/data`,
       data

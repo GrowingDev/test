@@ -28,7 +28,7 @@ export class AddCustomSensorOarametersDialogComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
       this.kitID = params.get('id');
-      console.log(this.kitID);
+
     });
   }
 

@@ -21,7 +21,7 @@ export class KitCardComponent implements OnInit {
   ngOnInit(): void {
     this.sensorService.getLatestSensorData(this.kit.kitID).subscribe({
       next: (sensors) => {
-        console.log(sensors);
+
         this.dataLoadingState = LoadingState.Success
       },
       error: () => this.dataLoadingState = LoadingState.Error,

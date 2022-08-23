@@ -1,9 +1,14 @@
 <mat-toolbar>
-  <button
-    mat-button
-    class="main-navigation-button"
-    (click)="navigationToggle.emit()"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
+  <div class="flex-1">
+    <button
+      mat-button
+      class="main-navigation-button"
+      (click)="navigationToggle.emit()"
+    >
+      <mat-icon class="text-white">menu</mat-icon>
+    </button>
+  </div>
+
+  <div class="flex-1 flex flex-row justify-center"><img src="../../../assets/imgs/tac_logo_white.png" height="auto" width="70px"></div>
+  <div class="flex-1"></div>
 </mat-toolbar>

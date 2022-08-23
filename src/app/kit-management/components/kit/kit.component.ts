@@ -15,6 +15,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class KitComponent implements OnInit {
   kit?: KitData;
   kitID?: any;
+  data: any;
   dataLoadingState = LoadingState.Loading;
   readonly loadingState = LoadingState;
 
@@ -22,19 +23,22 @@ export class KitComponent implements OnInit {
     private sensorService: SensorService,
     private kitService: KitService,
     private activatedRoute: ActivatedRoute,
-    private dialog: MatDialog,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
+    this.kitService.getMyKits()
+    .subscribe(kits => {
+      this.kit = kits.find(kit => kit.kitID === this.kitID)
+    })
     this.activatedRoute.paramMap.subscribe((params) => {
       this.kitID = params.get('id');
-      console.log(this.kitID);
     });
 
     this.kitService.selectedKit.subscribe({
       next: (kit) => {
         this.kit = kit;
-  
+
         this.dataLoadingState = LoadingState.Success;
       },
       error: () => {
@@ -42,14 +46,17 @@ export class KitComponent implements OnInit {
         this.dataLoadingState = LoadingState.Error;
       },
     });
+    this.getLatestSensorData();
+  }
+
+  getLatestSensorData() {
     this.sensorService.getLatestSensorData(this.kitID).subscribe({
-      next: (sensors) => {
-        console.log(sensors);
+      next: (data) => {
+       this.data = data;
       },
       error: () => console.log(),
     });
   }
-
   openAddNewCustomSensorDialog(): void {
     this.dialog.open(AddNewSensorDialogComponent, { data: this.kitID });
   }

@@ -4,6 +4,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+
     height: 100%;
 }
 
@@ -18,8 +19,11 @@
 .kit-header {
     display: flex;
     flex-direction: row;
-    gap: 24px;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
 }
+
 .kit-information {
     min-height: 100px;
 }
@@ -28,9 +32,22 @@
     position: fixed;
     bottom: 16px;
     right: 16px;
+    z-index: 99;
 
     @media (min-width: $min-md-width) {
         bottom: 24px;
+        right: 24px;
+    }
+}
+
+.add-new-measurement-button{
+    position: fixed;
+    bottom: 100px;
+    right: 16px;
+    z-index: 99;
+
+    @media (min-width: $min-md-width) {
+        bottom: 100px;
         right: 24px;
     }
 }
