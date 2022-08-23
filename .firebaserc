@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tac-client": {
+      "hosting": {
+        "client-app-v3": [
+          "tac-client"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tac-client"
+  }
+}

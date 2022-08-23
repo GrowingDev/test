@@ -110,6 +110,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "client-app-v3:build:production",
+            "firebaseProject": "tac-client",
+            "firebaseHostingSite": "tac-client"
+          }
         }
       }
     }
