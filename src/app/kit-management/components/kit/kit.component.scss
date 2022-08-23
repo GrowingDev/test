@@ -14,3 +14,23 @@
         padding: 24px;
     }
 }
+
+.kit-header {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+.kit-information {
+    min-height: 100px;
+}
+
+.add-new-custom-sensor-button {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+
+    @media (min-width: $min-md-width) {
+        bottom: 24px;
+        right: 24px;
+    }
+}

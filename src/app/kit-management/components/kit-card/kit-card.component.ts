@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { KitData } from '../../models/kit-data.model';
 import { LoadingState } from '../../models/LoadingState';
 import { KitService } from '../../services/kit.service';
@@ -15,7 +16,7 @@ export class KitCardComponent implements OnInit {
   dataLoadingState = LoadingState.Loading;
   readonly loadingState = LoadingState;
 
-  constructor(private sensorService: SensorService, private kitService: KitService) {}
+  constructor(private router: Router,private sensorService: SensorService, private kitService: KitService) {}
 
   ngOnInit(): void {
     this.sensorService.getLatestSensorData(this.kit.kitID).subscribe({
@@ -28,6 +29,7 @@ export class KitCardComponent implements OnInit {
   }
   
   selectKit(): void {
+    this.router.navigate(['/kit-management/kit/', this.kit.kitID])
     this.kitService.selectedKit.next(this.kit)
   }
 }

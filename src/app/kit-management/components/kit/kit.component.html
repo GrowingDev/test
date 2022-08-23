@@ -1,20 +1,50 @@
 <div class="kit">
-  <mat-card>
-    <mat-card-header class="kit-card-header">
-      <mat-card-title>{{ kit?.kitName }}</mat-card-title>
-      <mat-card-subtitle>{{ kit?.Location }}</mat-card-subtitle>
-      <mat-card-subtitle>{{ kit?.kitID }}</mat-card-subtitle>
-      <mat-icon
-        [color]="dataLoadingState === loadingState.Success ? 'primary' : 'warn'"
-        >circle</mat-icon
-      >
-    </mat-card-header>
+  <div class="kit-header">
+    <mat-card class="my-4 flex-1 max-w-xl">
+      <mat-card-header class="kit-header">
+        <mat-card-title>TAC</mat-card-title>
+        <mat-card-subtitle>Linz</mat-card-subtitle>
+      </mat-card-header>
 
-    <mat-card-content>
-      <p>t</p>
-    </mat-card-content>
-    <mat-card-actions class="text-center">
-      <button mat-button>Settings</button>
-    </mat-card-actions>
-  </mat-card>
+      <mat-card-content>
+        <div class="kit-information"></div>
+      </mat-card-content>
+      <mat-card-actions class="text-center">
+        <button mat-button>Settings</button>
+      </mat-card-actions>
+    </mat-card>
+
+   <!--  <mat-card class="my-4 flex-1">
+      <mat-card-header class="kit-header">
+        <mat-card-title>{{ kit?.kitName }}</mat-card-title>
+        <mat-card-subtitle>{{ kit?.Location }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ kit?.kitID }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="kit-information"></div>
+      </mat-card-content>
+      <mat-card-actions class="text-center">
+        <button mat-button></button>
+      </mat-card-actions>
+    </mat-card> -->
+  </div>
+
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Air Sensors">
+      <app-air-table [kitID]="kitID"></app-air-table>
+    </mat-tab>
+    <mat-tab label="Water Sensors">
+      <app-water-table [kitID]="kitID"></app-water-table
+    ></mat-tab>
+    <mat-tab label="Soil Sensors">
+      <app-soil-table [kitID]="kitID"></app-soil-table
+    ></mat-tab>
+    <mat-tab label="Custom Sensors">
+      <app-custom-table [kitID]="kitID"></app-custom-table>
+    </mat-tab>
+  </mat-tab-group>
 </div>
+<button class="add-new-custom-sensor-button" (click)="openAddNewCustomSensorDialog()" mat-fab color="primary" aria-label="Botton for adding new kit">
+  <mat-icon>add</mat-icon>
+</button>

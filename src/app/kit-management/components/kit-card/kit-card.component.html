@@ -1,17 +1,7 @@
-<mat-card
-  class="kit"
-  routerLinkActive="active-link"
-  [routerLink]="['/kit-management/kit/', kit.kitID]"
-  (click)="selectKit()"
->
+<mat-card class="kit" (click)="selectKit()">
   <mat-card-header class="kit-card-header">
-<!--     <mat-card-title>{{ kit.kitName }}</mat-card-title>
+    <mat-card-title>{{ kit.kitName }}</mat-card-title>
     <mat-card-subtitle>{{ kit.Location }}</mat-card-subtitle>
- -->
-    <mat-icon
-      [color]="dataLoadingState === loadingState.Success ? 'primary' : 'warn'"
-      >circle</mat-icon
-    >
   </mat-card-header>
   <img
     *ngIf="kit.sensors"
@@ -27,17 +17,10 @@
     </p>
     <app-error-message
       *ngIf="!kit.sensors"
-      message="Sensors not available"
+      message="Visualisation not available"
     ></app-error-message>
   </mat-card-content>
   <mat-card-actions class="text-center">
-    <button
-      mat-button
-      routerLinkActive="active-link"
-      [routerLink]="['/kit-management/kit/', kit.kitID]"
-      (click)="selectKit()"
-    >
-      CLlCK FOR DETAILS
-    </button>
+    <button mat-button (click)="selectKit()">CLlCK FOR DETAILS</button>
   </mat-card-actions>
 </mat-card>
